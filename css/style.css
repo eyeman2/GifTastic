@@ -1,0 +1,119 @@
+body{
+    background: rgb(183, 197, 197);
+}
+
+#newButton{
+    float: right;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-right: 100px;
+    margin-left: 10px;
+}
+
+#add{
+    margin-top: 10px;
+
+}
+
+#input{
+    width: 250px;
+} 
+
+/* .gifSize{
+    display: inline-block;
+} */
+
+#Gifs{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 12px;
+}
+
+img{
+    width: 100%;
+    border-radius: 10px;
+}
+#buttons{
+    margin-top: 50px;
+    margin-left: 15px;
+    width: 1500px;
+
+}
+
+.topic-btn{
+    margin: 10px 8px;
+    background: purple;
+    border-radius: 10px;
+    color: papayawhip;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* #boxSize{
+    width: 900px;
+} */
+
+p{
+    /* position: absolute; */
+}
+
+
+
+.gif-wrapper {
+    display: grid;
+    position: relative;
+}
+
+.rated {
+    /* border: 3px solid blue; */
+    z-index: 2;
+    color: black;
+    background-color: white;
+    border-radius: 6px;
+    opacity: .6;
+    position: absolute;
+    text-shadow: 1px 4px 13px rgba(0, 0, 0, .3);
+    font-size: 200%;
+    right: 0;
+    top: 0;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 600px) {
+
+    img{
+        display: inline-block;
+        /* width: 100%; */
+        height: 100%;
+    }   
+}
+
+@media screen and (max-width: 768px) {
+
+    gifDiv{
+        width: 100%;
+    }
+    gifDiv{
+        width: 100%;
+    }
+    #buttons {
+        width: 100%;
+        padding: 10px;
+    }
+
+    #Gifs{
+        width: 90%;
+    }
+
+    img{
+        display: inline-block;
+    
+    }
+
+    #add{
+        margin-left: 10px;
+    }
+    #newButton{
+        /* margin-top: 50px */
+    }
+
+}
