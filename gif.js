@@ -1,12 +1,12 @@
 
-var topics = ["Ted Cruz", "Elizabeth Warren", "Arnold Schwarzenegger", 'Donal Trump', "Vladimir Putin", "Roy Moore", "Mitch McConnel", "Hillary Clinton", "Bill Clinton", "Bernie Sanders", "Lindsey Graham"];
+var topics = ["Elizabeth Warren", "Arnold Schwarzenegger", 'Donal Trump', "Vladimir Putin", "Roy Moore", "Mitch McConnel", "Hillary Clinton", "Bill Clinton", "Bernie Sanders", "Lindsey Graham"];
 // console.log(topics)
 
 function showGifs() {
 
     var topic = $(this).attr("data-name");
 
-    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=jLoFybnVzecovsr1cnuvh0oSmvy0h5Xq&q=politics+" + topic + "&limit=10";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=jLoFybnVzecovsr1cnuvh0oSmvy0h5Xq&q=" + topic + "&limit=10";
 
 
     $.ajax({
@@ -14,6 +14,7 @@ function showGifs() {
         method: "GET"
 
     }).then(function (response) {
+        
 
         $("#Gifs").empty();
 
@@ -26,13 +27,18 @@ function showGifs() {
             // add class to div that contains gif and rating
             gifDiv.addClass('gif-wrapper');
 
-            var gif = $("<img>")
+            var gif = $("<img><br><span> Rating: " + rating + "<br>Created by: " + slug + "<br>Title: " + title +"</span>")
+
             var rating = results[i].rating;
 
             var rated = $("<p>").text(rating);
 
+            var slug = results[i].slug;
+
+            var title = results[i].title;
             
             gif.addClass("gifSource");
+
             rated.addClass('rated');
             
             gif.attr("src", results[i].images.fixed_height_still.url);
@@ -41,7 +47,7 @@ function showGifs() {
             
             gif.attr("data-still", results[i].images.fixed_height_still.url);
             
-            gif.attr("data-motion", results[i].images.fixed_height.url);
+            gif.attr("data-motion", results[i].images.fixed_height.url,);
             
             
             
@@ -57,8 +63,8 @@ function showGifs() {
             // gifImage.attr("src", results[i].images.fixed_height.url);
             
             gifDiv.append(gif);
-            gifDiv.append(rated);
-            
+            // gifDiv.append(rated);
+            $("#gifSouce").append(rated);
             $("#Gifs").append(gifDiv);
             // $("#Gifs").empty();
 
@@ -120,6 +126,17 @@ $("#add").on("click", function (event) {
     showButtons();
 
 })
+
+// $("#addMore").on("click", function(){
+//     var gifBox = "#Gifs",
+
+//     if (gifBox !==null) {
+        
+//     }
+//     showGifs();
+//     $("#Gifs").after();
+    
+// })
 
 
 
